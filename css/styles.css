@@ -1,0 +1,206 @@
+:root {
+  --clr-orange-bright: hsl(31, 77%, 52%);
+  --clr-cyan-dark: hsl(184, 100%, 22%);
+  --clr-cyan-verydark: hsl(179, 100%, 13%);
+  --clr-gray-light: hsl(0, 0%, 95%);
+  --clr-white-transparent: hsla(0, 0%, 100%, 0.75);
+  --ff-big-shoulders-display: 'Big Shoulders Display', cursive;
+  --ff-lexend-deca: 'Lexend Deca', Arial, Helvetica, sans-serif;
+}
+
+
+/*############################
+General Styles
+##############################*/
+
+body {
+  background-color: var(--clr-gray-light);  
+  font-family: var(--ff-lexend-deca);
+  font-weight: 400;
+
+  /* Vertically and horizontally center the <main> wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Allow component to be fully visible on smaller heights */
+  min-height: 100%;
+
+  padding: 2rem;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+button {
+  background-color: var(--clr-gray-light);
+  padding: 12px;
+  border-radius: 25px;
+  border: 2px solid var(--clr-gray-light);
+  font-size: 1rem;
+
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+
+/*############################
+Font Styles
+##############################*/
+h2 {
+  font-family: var(--ff-big-shoulders-display);
+  color: var(--clr-gray-light);
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+p {
+  color: var(--clr-white-transparent);
+  font-size: 0.938rem;
+  line-height: 1.6;
+  letter-spacing: 0.016rem;
+}
+
+
+/*############################
+Layout + Positioning + Spacing
+##############################*/
+
+/* Using default flex-flow to get the cards to sit next to eachother
+Setting a width and min-height to match the design spec */
+.flex__container {
+  display: flex;
+  width: 900px;
+  min-height: 500px;
+}
+
+.card {
+  /* Setting a flex-basis to ensure equal widths of the flex items. The widths will slightly vary depending on text without this */
+  flex-basis: 33.3333%;
+
+  padding: 45px 4.5%;
+}
+
+.card__header {
+  margin-bottom: 35px;
+}
+
+.card__icon {
+  max-width: 65px;
+  margin-bottom: 40px;
+}
+
+.card__description {
+  margin-bottom: 85px;
+}
+
+.card__cta {
+  width: 150px;
+}
+
+
+/*############################
+Section-specific Styles
+##############################*/
+
+.card.sedans {
+  background-color: var(--clr-orange-bright);
+}
+.card.suvs {
+  background-color: var(--clr-cyan-dark);
+}
+.card.luxury {
+  background-color: var(--clr-cyan-verydark);
+}
+
+/* Set the border-radius on the first and last cards */
+.card:first-of-type {
+  border-radius: 8px 0 0 8px;
+}
+.card:last-of-type {
+  border-radius: 0 8px 8px 0;
+}
+
+.sedans button {
+  color: var(--clr-orange-bright);
+}
+.suvs button {
+  color: var(--clr-cyan-dark);
+}
+.luxury button {
+  color: var(--clr-cyan-verydark);
+}
+
+button:hover, button:focus {
+  background-color: transparent;
+  color: var(--clr-gray-light);
+}
+
+
+/*############################
+Media query for mobile layout + spacing
+##############################*/
+
+@media only screen and (max-width: 768px) {
+
+  body {
+    padding: 1.5rem;
+  }
+
+  .flex__container {
+    width: 100%;
+
+    /* Setting a max-width so that the flex__container doesn't stretch too much */
+    max-width: 500px;
+    min-height: auto;
+
+    /* Stack the cards */
+    flex-direction: column;
+  }
+
+  /* Adjusting spacing to better match design spec */
+  .card {
+    flex-basis: auto;
+    padding: 45px;
+    min-height: 440px;
+  }
+  .card__header {
+    margin-bottom: 30px;
+  }
+  .card__description {
+    margin-bottom: 25px;
+  }
+
+  /* Adjusting border-radius to match column layout */
+  .card:first-of-type {
+    border-radius: 8px 8px 0 0;
+  }
+  .card:last-of-type {
+    border-radius: 0 0 8px 8px;
+  }
+
+}
+
+
+/*############################
+Attribution Styles
+##############################*/
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 2px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 11px;
+  text-align: center;
+  color: var(--clr-white);
+  z-index: -1;
+}
+footer .attribution a {
+  color: hsl(228, 45%, 44%);
+}
