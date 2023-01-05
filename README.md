@@ -28,7 +28,7 @@ This is a solution to the [3-column preview card component challenge on Frontend
 
 
 ### Links
-- Live Site URL: 
+- Live Site URL: https://famous-bavarois-a0a0ab.netlify.app
 
 
 ## My process
