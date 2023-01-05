@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 :root {
   --clr-orange-bright: hsl(31, 77%, 52%);
   --clr-cyan-dark: hsl(184, 100%, 22%);
@@ -19,8 +26,16 @@ body {
   font-weight: 400;
 
   /* Vertically and horizontally center the <main> wrapper */
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   /* Allow component to be fully visible on smaller heights */
@@ -43,6 +58,7 @@ button {
   font-size: 1rem;
 
   cursor: pointer;
+  -webkit-transition-duration: 200ms;
   transition-duration: 200ms;
 }
 
@@ -72,13 +88,17 @@ Layout + Positioning + Spacing
 /* Using default flex-flow to get the cards to sit next to eachother
 Setting a width and min-height to match the design spec */
 .flex__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+
   width: 900px;
   min-height: 500px;
 }
 
 .card {
   /* Setting a flex-basis to ensure equal widths of the flex items. The widths will slightly vary depending on text without this */
+  -ms-flex-preferred-size: 33.3333%;
   flex-basis: 33.3333%;
 
   padding: 45px 4.5%;
@@ -158,11 +178,15 @@ Media query for mobile layout + spacing
     min-height: auto;
 
     /* Stack the cards */
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
 
   /* Adjusting spacing to better match design spec */
   .card {
+    -ms-flex-preferred-size: auto;
     flex-basis: auto;
     padding: 45px;
     min-height: 440px;
