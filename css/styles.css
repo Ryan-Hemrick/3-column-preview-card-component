@@ -113,6 +113,7 @@ Setting a width and min-height to match the design spec */
   margin-bottom: 40px;
 }
 
+/* Could set a min-height on this element so that the buttons remain in the same position on resize */
 .card__description {
   margin-bottom: 85px;
 }
